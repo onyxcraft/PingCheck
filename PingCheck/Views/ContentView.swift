@@ -4,33 +4,35 @@ struct ContentView: View {
     @ObservedObject var viewModel: PingViewModel
 
     var body: some View {
-        TabView {
-            DashboardView(viewModel: viewModel)
-                .tabItem {
-                    Label("Dashboard", systemImage: "chart.line.uptrend.xyaxis")
-                }
+        ScrollView {
+            TabView {
+                DashboardView(viewModel: viewModel)
+                    .tabItem {
+                        Label("Dashboard", systemImage: "chart.line.uptrend.xyaxis")
+                    }
 
-            LatencyGraphView(viewModel: viewModel)
-                .tabItem {
-                    Label("Graph", systemImage: "chart.xyaxis.line")
-                }
+                LatencyGraphView(viewModel: viewModel)
+                    .tabItem {
+                        Label("Graph", systemImage: "chart.xyaxis.line")
+                    }
 
-            TracerouteView(viewModel: viewModel)
-                .tabItem {
-                    Label("Traceroute", systemImage: "point.3.connected.trianglepath.dotted")
-                }
+                TracerouteView(viewModel: viewModel)
+                    .tabItem {
+                        Label("Traceroute", systemImage: "point.3.connected.trianglepath.dotted")
+                    }
 
-            HistoryView(viewModel: viewModel)
-                .tabItem {
-                    Label("History", systemImage: "clock.arrow.circlepath")
-                }
+                HistoryView(viewModel: viewModel)
+                    .tabItem {
+                        Label("History", systemImage: "clock.arrow.circlepath")
+                    }
 
-            SettingsView(viewModel: viewModel)
-                .tabItem {
-                    Label("Settings", systemImage: "gear")
-                }
+                SettingsView(viewModel: viewModel)
+                    .tabItem {
+                        Label("Settings", systemImage: "gear")
+                    }
+            }
         }
-        .frame(width: 400, height: 600)
+        .frame(minWidth: 400, minHeight: 500)
     }
 }
 
