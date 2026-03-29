@@ -14,8 +14,8 @@ class PingViewModel: ObservableObject {
     let pingService = PingService()
     let historyService = HistoryService()
     let tracerouteService = TracerouteService()
-    let alertManager = AlertManager()
-    let settingsManager = SettingsManager()
+    var alertManager = AlertManager()
+    var settingsManager = SettingsManager()
 
     private var cancellables = Set<AnyCancellable>()
     private var pingResultCount: [String: (success: Int, total: Int)] = [:]
